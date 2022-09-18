@@ -2,11 +2,14 @@ import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 
 import React from 'react';
 import Select from 'react-select';
-import { Search, Option } from "searchpal";
+// import { Search, Option } from "searchpal";
 import makeAnimated from 'react-select/animated';
 import { useState } from 'react';
 import './Filter.css'
+import Company from '../Company/Company'
+
 const animatedComponents = makeAnimated();  
+
 
 
 const genderTags = [
@@ -33,7 +36,7 @@ const countryTags = [
 
 const getStarScore = value => {
     if (value < 0.3)
-        return <div className="starRow"> <BsStar /> <BsStar /> <BsStar /> <BsStar /> <BsStar /> </div>
+        return <div className="starRow"><BsStar /><BsStar /> <BsStar /> <BsStar /> <BsStar /> </div>
     else if (value < 0.8)
         return <div className="starRow"> <BsStarHalf /> <BsStar /> <BsStar /> <BsStar /> <BsStar /> </div>
     else if (value < 1.2)
@@ -67,51 +70,49 @@ const Filter =() => {
 
     return (
         <>
-        <h1>hello</h1>
         <div className="filter_container">
-            <div className="dropdowns">
-                <Select options={genderTags}
+            <div className="filter_list">
+                <Select className="filter" options={genderTags}
                 defaultValue={genderTag} 
                 components={animatedComponents}
                 value={genderTag}
                 onChange= {setGenderTag}
                 />
 
-                <Select options={raceTags}
+                <Select className="filter"  options={raceTags}
                 defaultValue={raceTag} 
                 components={animatedComponents}
                 value={raceTag}
                 onChange= {setRaceTag}
                 />
 
-                <Select options={ageTags}
+                <Select className="filter" options={ageTags}
                 defaultValue={ageTag} 
                 components={animatedComponents}
                 value={ageTag}
                 onChange= {setAgeTag}
                 />
 
-                <Select options={countryTags}
+                <Select className="filter" options={countryTags}
                 defaultValue={countryTag} 
                 components={animatedComponents}
                 value={countryTag}
                 onChange= {setCountryTag}
                 />
 
-                <button onClick={() => console.log(genderTag, raceTag, countryTag, ageTag)}>test</button>
             </div>
-
+            <button className="test_search" onClick={() => console.log(genderTag, raceTag, countryTag, ageTag)}>test</button>
             <div className='workplaceSearchContainer'>
                 
             <button onClick={() => setSearchOpen(true)}>Search for a workspace...</button>
 
-                <Search
+                {/* <Search
                     label="Search for a workspace..."
                     open={searchOpen}
                     onClose={() => setSearchOpen(false)}
                     link={({ href, children }) => <a href={href}>{children}</a>}
                 >
-                    {/* {users.map((user) => (
+                    {users.map((user) => (
                     <Option
                         label={user.name}
                         sublabel={user.email}
@@ -140,20 +141,51 @@ const Filter =() => {
                         />
                         )}
                     </Option>
-                    ))} */}
-                </Search>
+                    ))}
+                </Search> */}
 
             </div>
 
-            <div className='companyDetailsContainer'>
-                { /* Company questions - hide if not selected */ }
-                <div className="feedbackQuestionContainer">
-                    <text>abc</text>
-                    {getStarScore(2)}
-                </div>
-    
-            </div>
+            <Company/>
+
         </div>
+
+        <div className="feedback_container">
+            <div className="imp">
+            <div className="feedback_title">
+                <h3>Feedback Ratings</h3>
+            </div>
+            <div className="feedback_header">
+                <h4>Strongly Disagree</h4>
+                <h4>Disagree</h4>
+                <h4>Neither Agree nor Disagree</h4>
+                <h4>Agree</h4>
+                <h4>Strongly Agree</h4>
+            </div>
+            </div>
+
+            {
+                ['I can see myself working here in 5 years',
+                'Clear understanding of strategic goals',
+                'I can see how my work affects the companys success',
+                'I know what is expected of when it comes to my goals',
+                'Everyone is on the same team at my company',
+                'My manager recognisesc apitalises on my strengths',
+                'I always want to give my best whenever at work',
+                'I w\'m proud to be part of this company',
+                'I always recommend my company to others',
+                'The leaders really know what they\'re doing',
+                'I believe in my companys mission'].map((item)=>(
+                    <div className="feedback_ques" key={item}>
+                <h3>{item}</h3>
+                {getStarScore(2)}
+               </div>
+                ))
+            }
+            
+        </div>
+        
+        
         </>
     );
   }; 

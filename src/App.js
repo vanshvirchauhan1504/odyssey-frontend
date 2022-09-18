@@ -5,7 +5,7 @@ import { useStateContext } from './Context/StateContext';
 import Landing from './Pages/Landing/Landing';
 import './App.css'
 import Profile from './Components/Profile/Profile'
-
+import Dashboard from './Components/Dashboard/Dashboard'
 import Navbar from './Components/Navbar/Navbar'
 
 
@@ -15,15 +15,17 @@ const App = () => {
   
   return (
     <>
+    {/* <Dashboard/> */}
     <BrowserRouter>
     {isAuthorised?
     <>
       <Routes>
         <Route path="" element={<Profile/>} />
+        <Route path="/Dashboard" element={<Dashboard/>} />
       </Routes>
     </>:
       <Routes>
-        <Route path="" element={<Landing/>} />
+        <Route path="/" element={<Landing/>} />
       </Routes>
     }
       

@@ -5,7 +5,7 @@ import P_1 from '../../Assets/Mask group.png'
 import P_2 from '../../Assets/Mask group-1.png'
 import P_3 from '../../Assets/Mask group-2.png'
 
-import P_4 from '../../Assets/Mask group-3.png'
+  import P_4 from '../../Assets/Mask group-3.png'
 
 const About = () => {
 
@@ -30,8 +30,8 @@ allows them to compare salary trends within or with other workplaces, and commun
       <div className="team_desc">
         <div className="team_img">
           <img src={P_1} alt="" />
-          <h3>Vanshvir Chauhan</h3>
-          <h4>Frontend Dev</h4>
+          <h3>Tarun Pratap</h3>
+          <h4>Backend Dev</h4>
         </div>
         <div className="team_img">
           <img src={P_2} alt="" />
@@ -40,13 +40,13 @@ allows them to compare salary trends within or with other workplaces, and commun
         </div>
         <div className="team_img">
           <img src={P_3} alt="" />
-          <h3>Vanshvir Chauhan</h3>
-          <h4>Frontend Dev</h4>
+          <h3>Divyam Chadha</h3>
+          <h4>Team Lead</h4>
         </div>
         <div className="team_img">
           <img src={P_4} alt="" />
-          <h3>VanshvirChauhan</h3>
-          <h4>Frontend Dev</h4>
+          <h3>Naman Katariya</h3>
+          <h4>UI Designer</h4>
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import './Profile.css'
 import test_logo from '../../Assets/test_logo.png'
 import {useStateContext} from '../../Context/StateContext';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   const {toggleIsAuthorised} = useStateContext();
@@ -35,9 +36,15 @@ const Profile = () => {
           </div>
         </div>
         <div className="logout">
+
+         <Link to='/Dashboard'>
+         <button>Go to Dashboard</button>
+         </Link>
+
           <button onClick={toggleIsAuthorised}>
             Log Out
           </button>
+          
         </div>
       </div>
       
