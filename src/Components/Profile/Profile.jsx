@@ -20,10 +20,14 @@ const Profile = () => {
               </div>
               <div className="profile_header_title_tags">
                 <ul>
-                  <li>Tag 1</li>
-                  <li>Tag 2</li>
-                  <li>Tag 3</li>
-                  <li>Tag 4</li>
+                  {
+                    ["Tag 1","Tag 2","Tag 3","Tag 4"].map((item)=>(
+                        <>
+                        <li key={item}>{item}</li>
+                        </>
+                      
+                    ))
+                  }
                   <li>+ Add Tag</li>
                 </ul>
               </div>

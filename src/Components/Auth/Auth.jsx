@@ -63,7 +63,7 @@ const Auth = () => {
               value={password}/>
             </div>
             <p className='auth_para'>
-              Forgot <Link to="/">password?</Link>
+              <Link to="/">Forgot password?</Link>
             </p>
             <div>
               <button type="submit" className='auth_button'>

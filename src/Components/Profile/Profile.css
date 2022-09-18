@@ -1,7 +1,7 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color: rgb(227, 225, 225);
+    /* background-color: rgb(227, 225, 225); */
 }
 .profile_container{
     font-family: sans-serif;
@@ -162,3 +162,4 @@ body{
     border: 2px solid black;
     border-radius: 10px;
 }
+
